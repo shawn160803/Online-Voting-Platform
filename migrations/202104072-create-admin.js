@@ -29,6 +29,7 @@ module.exports = {
       }
     });
   },
-  async down(queryInterface.dropTable('Admins');
-}
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('Admins');
+  }
 };
