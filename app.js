@@ -317,7 +317,7 @@ app.post(
     const elections = await Election.findByPk(request.params.id);
 
     if (loggedInAdminID !== elections.adminID) {
-      return response.render("Error", { error message: "You are not applicable  to visit this page",
+      return response.render("Error", { errorMessage: "You are not applicable  to visit this page",
       });
     }
 
