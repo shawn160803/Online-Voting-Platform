@@ -23,7 +23,7 @@ const login = async (agent, username, password) => {
     });
 };
 
-describe("first", () => {
+describe("test suite", () => {
   beforeAll(async () => {
     await db.sequelize.sync({ force: true });
     server = app.listen(6000, () => {});
@@ -35,7 +35,7 @@ describe("first", () => {
     server.close();
   });
 
-  test(" should first", () => {
+  test(" should test suite", () => {
     expect(1).toBe(1);
   });
 ?? login as a user
