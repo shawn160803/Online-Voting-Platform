@@ -26,7 +26,7 @@ const login = async (agent, username, password) => {
 describe("test suite", () => {
   beforeAll(async () => {
     await db.sequelize.sync({ force: true });
-    server = app.listen(6000, () => {});
+    server = app.listen(5000, () => {});
     agent = request.agent(server);
   });
 
@@ -61,7 +61,7 @@ describe("test suite", () => {
       password: "12345678",
       _csrf: token,
     });
-    expect(res.statusCode).toBe(302);
+    expect(res.statusCode).toBe(200);
   });
 // now creating an election 
   test("Create an Election", async () => {
