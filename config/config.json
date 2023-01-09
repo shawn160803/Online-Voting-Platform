@@ -1,20 +1,20 @@
 {
   "development": {
-    "username": "shawn",
-    "password": "avinash",
+    "username": "postgres",
+    "password": "password",
     "database": "vote_db",
     "host": "127.0.0.1",
-    "dialect": "shawn"
+    "dialect": "postgres"
   },
   "test": {
-    "username": "shawn",
-    "password": "avinash",
+    "username": "postgres",
+    "password": "password",
     "database": "vote_db_test",
     "host": "127.0.0.1",
-    "dialect": "shawn"
+    "dialect": "postgres"
   },
   "production": {
     "use_env_variable": "DATABASE_URL",
-    "dialect": "shawn"
+    "dialect": "postgres"
   }
 }
