@@ -23,10 +23,10 @@ const login = async (agent, username, password) => {
     });
 };
 
-describe("test suite", () => {
+describe("first", () => {
   beforeAll(async () => {
     await db.sequelize.sync({ force: true });
-    server = app.listen(5000, () => {});
+    server = app.listen(6000, () => {});
     agent = request.agent(server);
   });
 
@@ -35,7 +35,7 @@ describe("test suite", () => {
     server.close();
   });
 
-  test("should test suite", () => {
+  test(" should first", () => {
     expect(1).toBe(1);
   });
 ?? login as a user
@@ -60,7 +60,7 @@ describe("test suite", () => {
       password: "12345678",
       _csrf: token,
     });
-    expect(res.statusCode).toBe(200);
+    expect(res.statusCode).toBe(302);
   });
 // now creating an election 
   test("Create an Election", async () => {
