@@ -1,53 +1,114 @@
 <html>
-<head>
-    <title>Online-Voting-Platform | Shawn Frost</title>
+  <head>
+    <title>Online Voting Platform | shawn frost</title>
+    <meta name="csrf-token" content="0623c85f-95bd-4ce8-b18e-03a3c1ef1fa8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body
-    class="bg-gradient-to-tl from-blue-300 to-green-600 min-h-screen w-full"
-    >
-    <div class="flex justify-center text-blue-1000">
-        <%- include ('header') %>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-tl from-gray-200 to-green-500 min-h-screen w-full"
+  >
+    <div class="flex justify-center text-blue-800">
+      <div class="flex flex-col gap-2 w-full">
+  <div class="flex flex-col justify-center items-center text-blue-800">
+    <header>
+  <h1 class="text-4xl p-3 font-semibold">Online Voting Platform</h1>
+</header>
+
+  </div>
+  <div class="text-black flex flex-col justify-between items-center">
+    <div class="flex flex-col md:w-2/5 w-full">
+      <div class="flex justify-between w-full">
+        <div class="flex justify-center items-center gap-2">
+          <i class="fa fa-user flex items-center justify-center"></i>
+          <p class="font-semibold text-xl flex items-center justify-center">
+            shawn
+          </p>
         </div>
-        <div class="flex flex-col justify-center items-center p-4">
-            <div class="flex flex-col justify-center md:w-2/5 w-full">
-                <p class="font-bold text-2xl">
-                    A one of the best platform to organize an elections and view results
-                </p>
-               
-                <p class="font-semi-bold text-xl pt-4">
-                    <li>{free elections without any need of host}</li>
-                    <li>{Add specific voters for each election}</li>
-                    <li>{view graph of results}</li>
-                </p>
-                <div class="flex flex-col justify-center items-center">
-                    <p class="text-red-600 text-2xl font-bold pt-4">
-                        ADMIN Login
-                    </p>
-                    <div
-                        class="flex flex-col justify-center items-center md:w-2/5 w-full"
-                        >
-                        <div
-                            class="flex flex-col justify-center pt-4 items-center pt-8 w-full"
-                            >
-                            <b>are you an Existing User?</b>
-                            <a
-                                class="bg-red-600 border-2 border-red-800 flex justify-center hover:bg-red-800 text-black font-bold p-1 rounded-lg w-full"
-                                href="/login"
-                                >LOG-In</a
-                            >
-                        </div>
-                        <div class="flex flex-col justify-center pt-4 items-center w-full">
-                            <b>ARE You a New User?</b>
-                            <a
-                                class="bg-red-600 border-2 w-full flex justify-center border-red-800 hover:bg-red-800 text-black font-bold p-1 rounded-lg"
-                                href="/signup"
-                                >Sign-Up</a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="flex gap-4">
+          <a
+            class="text-white px-6 bg-blue-500 hover:bg-blue-700 transition duration-200 border-2 border-blue-700 p-2 rounded-lg"
+            href="/home"
+            >Home</a
+          >
+          <a
+            class="text-red-500 px-6 hover:bg-red-100 transition duration-200 border-2 border-red-500 p-2 rounded-lg"
+            href="/signout"
+            >Sign Out</a
+          >
         </div>
-    </body>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div class="flex flex-col justify-center items-center p-4">
+      <div class="flex flex-col justify-center md:w-2/5 w-full">
+        <hr />
+        <div class="pt-6 flex justify-between">
+          <p class="font-bold text-4xl">Your Elections</p>
+          <a
+            href="/elections/new"
+            class="bg-blue-500 hover:bg-blue-600 border-2 border-blue-700 rounded-lg p-2 text-white"
+          >
+            <i class="fa fa-plus"></i> New Election
+          </a>
+        </div>
+        <!-- List of Elections -->
+        <div><html>
+  <head>
+    <title>Online Voting Platform | Pranshu Aggarwal</title>
+    <meta name="csrf-token" content="0623c85f-95bd-4ce8-b18e-03a3c1ef1fa8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script>
+        // function to delete election
+        function deleteElection(id) {
+          var token = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+
+            fetch(`/election/${id}`, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ _csrf: token }),
+            }).then((res) => {
+            if (res.ok) {
+              window.location.reload();
+            }
+          })
+          .catch((err) => console.log(err));
+        }
+    </script>
+  </head>
+  <body>
+    <div class="flex flex-col justify-center items-center p-4">
+      <div class="flex flex-col gap-4 justify-center w-full p-4">
+        
+            <h1 class="text-2xl flex justify-center text-gray-600">No elections created yet</h1>
+        
+        
+      </div>
+    </div>
+  </body>
+</html>
+</div>
+      </div>
+    </div>
+  </body>
 </html>
