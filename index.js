@@ -1,12 +1,6 @@
 /* eslint-disable no-undef */
-const app = require("./app.js");
-const express = require("express");
-const path = require("path");
+const app = require('./app');
 
-app.set("view engine", "ejs");
-// we gave path here as public 
-app.use(express.static(path.join(__dirname, "public")));
-
-app.listen(process.env.PORT || 5000, () => {
-  console.log("Started express server at port 5000");
-});
+app.listen(4000,() =>{
+    console.log("Server listening at port 4000")
+})
