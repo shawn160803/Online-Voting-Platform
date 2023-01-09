@@ -55,8 +55,7 @@ describe("test suite", () => {
     const signupPage = await agent.get("/signup");
     const token = extractCsrfToken(signupPage);
     const res = await agent.post("/users").send({
-      first name: "shawn",
-      last name: "frost",
+      name: "admin",
       email: "frost@gmail.com",
       password: "12345678",
       _csrf: token,
