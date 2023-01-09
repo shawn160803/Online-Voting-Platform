@@ -298,7 +298,7 @@ app.get(
     const admin = await Admin.findByPk(loggedInAdminID);
 
     if (loggedInAdminID !== election.adminID) {
-      return response.render("error", {Error message: "You are not applicable to perform this action",
+      return response.render("error", {errorMessage: "You are not applicable to perform this action",
       });
     }
 
