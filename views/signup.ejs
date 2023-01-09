@@ -1,19 +1,19 @@
 <html>
   <head>
-    <title>Sign Up</title>
+    <title>SignUp</title>
     <meta name="csrf-token" content="<%= csrf %>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gradient-to-tl from-gray-200 to-green-500 min-h-screen w-full">
+  <body class="bg-gradient-to-tl from-blue-300 to-green-600 min-h-screen w-full">
     <div class="flex justify-center"><%- include ('header') %></div>
     <div class="flex flex-col justify-center items-center p-4">
       <div class="flex flex-col justify-center md:w-1/5 w-full">
-        <h1 class="text-2xl flex justify-center font-semibold">Sign Up</h1>
+        <h1 class="text-2xl flex justify-center font-semibold">SignUp</h1>
         <form action="/users" method="post" class="flex flex-col gap-4 pt-6">
           <input type="hidden" name="_csrf" value="<%= csrf %>">
           <div class="flex flex-col">
-            <label for="name">Name</label>
+            <label for="name">NAME</label>
             <input
               type="text"
               name="name"
@@ -21,7 +21,7 @@
             />
           </div>
           <div class="flex flex-col">
-            <label for="email">Email</label>
+            <label for="email">EMAIL</label>
             <input
               type="text"
               name="email"
@@ -29,7 +29,7 @@
             />
           </div>
           <div class="flex flex-col">
-            <label for="password">Password</label>
+            <label for="password">PASSWORD</label>
             <input
               type="password"
               name="password"
@@ -38,9 +38,9 @@
           </div>
           <button
             type="submit"
-            class="bg-blue-500 border-2 border-blue-800 flex justify-center hover:bg-blue-700 text-white font-bold p-1 rounded-lg w-full mt-8"
+            class="bg-red-700 border-2 border-red-900 flex justify-center hover:bg-red-900 text-white font-bold p-1 rounded-lg w-full mt-8"
           >
-            Sign Up
+            SIGN-Up
           </button>
         </form>
 
@@ -48,17 +48,17 @@
         <div class="flex flex-col justify-center items-center gap-3 ">
           <% if (messages && messages.error && messages.error.length > 0) { %>
             <% for(var i=0; i<messages.error.length; i++) {%>
-              <div class="bg-red-300 text-red-900 font-semibold p-2 rounded-lg shadow"> <%= messages.error[i] %></div>
+              <div class="bg-red-400 text-red-1000 font-semibold p-2 rounded-lg shadow"> <%= messages.error[i] %></div>
             <% } %>
           <% } %>
         </div>
 
         <div class="flex flex-col justify-center pt-4 items-center">
-          <p>Already have an account?</p>
+          <p>Account exist already?</p>
           <a
-            class="bg-gray-100 border-2 px-8 border-black hover:bg-blue-200 p-1 rounded-lg"
+            class="bg-red-200 border-2 px-8 border-black hover:bg-blue-200 p-1 rounded-lg"
             href="/login"
-            >Log In</a
+            >Log-In</a
           >
         </div>
       </div>
