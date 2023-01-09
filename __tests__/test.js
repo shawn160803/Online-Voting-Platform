@@ -17,7 +17,7 @@ const login = async (agent, username, password) => {
   let res = await agent.get("/login");
   let csrfToken =  extractCsrfToken(res);
     res = await agent.post("/session").send({ 
-      email: "frost@gmail.com", 
+      email: "test@user.com", 
       password: "12345678",
        _csrf: csrfToken,
     });
@@ -56,7 +56,7 @@ describe("test suite", () => {
     const token = extractCsrfToken(signupPage);
     const res = await agent.post("/users").send({
       name: "admin",
-      email: "frost@gmail.com",
+      email: "test@user.com",
       password: "12345678",
       _csrf: token,
     });
